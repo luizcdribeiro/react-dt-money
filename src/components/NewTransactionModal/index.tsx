@@ -8,7 +8,7 @@ import {
   TransactionTypeButton 
 } from './styles'
 import * as z from 'zod'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 const newTransactionformSchema = z.object({
@@ -24,6 +24,7 @@ type NewTransactionformInputs = z.infer<typeof newTransactionformSchema>;
 export function NewTransactionModal() {
 
   const {
+    control,
     register,
     handleSubmit,
     formState: {
@@ -70,16 +71,27 @@ export function NewTransactionModal() {
               {...register('category')} 
             />
 
-            <TransactionType>
-              <TransactionTypeButton value='income' variant='income'>
-                <ArrowCircleUp size={24} />
-                Entrada
-              </TransactionTypeButton>
-              <TransactionTypeButton value='outcome' variant='outcome'>
-                <ArrowCircleDown size={24} />
-                Saída
-              </TransactionTypeButton>
-            </TransactionType>
+            <Controller
+              control={control} 
+              name="type"
+              render={({ field }) => {
+                return (
+                  <TransactionType 
+                    onValueChange={field.onChange}
+                    value={field.value}
+                  >
+                    <TransactionTypeButton value='income' variant='income'>
+                      <ArrowCircleUp size={24} />
+                      Entrada
+                    </TransactionTypeButton>
+                    <TransactionTypeButton value='outcome' variant='outcome'>
+                      <ArrowCircleDown size={24} />
+                      Saída
+                    </TransactionTypeButton>
+                  </TransactionType>
+                )
+              }}
+            />
 
             <button type='submit' disabled={isSubmitting}>Cadastrar</button>
           </form>
