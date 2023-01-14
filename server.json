@@ -15,6 +15,14 @@
       "category": "Alimentação",
       "price": 50,
       "createdAt": "2023-01-13T20:28:10.489Z"
+    },
+    {
+      "id": 3,
+      "description": "Seguro do Carro",
+      "type": "outcome",
+      "category": "Transporte",
+      "price": 350,
+      "createdAt": "2023-01-13T10:28:10.489Z"
     }
   ]
 }
