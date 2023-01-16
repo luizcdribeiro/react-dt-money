@@ -23,6 +23,22 @@
       "category": "Transporte",
       "price": 350,
       "createdAt": "2023-01-13T10:28:10.489Z"
+    },
+    {
+      "description": "Desenvolvimento de App",
+      "price": 10000,
+      "category": "Venda",
+      "type": "income",
+      "createdAt": "2023-01-16T19:47:12.987Z",
+      "id": 4
+    },
+    {
+      "description": "Pastel",
+      "price": 5,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2023-01-16T19:59:09.569Z",
+      "id": 5
     }
   ]
 }
